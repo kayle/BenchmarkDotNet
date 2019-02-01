@@ -71,7 +71,7 @@ namespace BenchmarkDotNet.Diagnostics.Windows
         protected override TraceEventSession CreateSession(BenchmarkCase benchmarkCase)
             => new TraceEventSession(KernelTraceEventParser.KernelSessionName);
 
-        protected override void EnableProvider()
+        protected override void EnableProvider(DiagnoserActionParameters parameters)
             => Session.EnableKernelProvider((KernelTraceEventParser.Keywords)EventType);
 
         protected override void AttachToEvents(TraceEventSession traceEventSession, BenchmarkCase benchmarkCase)
